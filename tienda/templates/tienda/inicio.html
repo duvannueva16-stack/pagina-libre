@@ -1,0 +1,38 @@
+{% extends 'tienda/base.html' %}
+{% load static %}
+
+{% block contenido %}
+<div class="hero">
+    <h1>la mejor ropa que combina con tu estilo</h1>
+    <p>escoge tu mejor estilo</p>
+</div>
+
+<div class="mb-4">
+    <a href="{% url 'inicio' %}" class="btn btn-outline-dark btn-sm">Todas</a>
+    {% for c in categorias %}
+    <a href="?categoria={{ c.id }}" class="btn btn-outline-dark btn-sm">{{ c.nombre }}</a>
+    {% endfor %}
+</div>
+
+<div class="row">
+    {% for p in productos %}
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            {% if p.imagen %}
+            <img src="{{ p.imagen.url }}" class="card-img-top" alt="{{ p.nombre }}">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ p.nombre }}</h5>
+                <p class="card-text">${{ p.precio|floatformat:0 }}</p>
+                <a href="{% url 'detalle' p.id %}" class="btn btn-primary">Ver detalle</a>
+                <a href="{% url 'EditarProducto' p.id %}" class="btn btn-outline-dark">Editar</a>
+                <a href="{% url 'EliminarProducto' p.id %}" class="btn btn-outline-dark">Eliminar</a>
+            </div>
+        </div>
+    </div>
+    {% empty %}
+    <p>No hay productos para mostrar.</p>
+    {% endfor %}
+</div>
+{% endblock %}
+

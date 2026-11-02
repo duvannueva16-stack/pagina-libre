@@ -1,0 +1,25 @@
+{% extends 'tienda/base.html' %}
+
+{% block contenido %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <h2 class="mb-4">Eliminar {{ tipo }}</h2>
+
+        <div class="card p-4 text-center">
+            {# Solo los productos tienen imagen #}
+            {% if objeto.imagen %}
+            <img src="{{ objeto.imagen.url }}" class="img-fluid rounded mb-3" alt="{{ objeto }}">
+            {% endif %}
+
+            <p class="fs-5">¿Seguro que quieres eliminar <strong>{{ objeto }}</strong>?</p>
+            <p class="text-muted">Esta acción no se puede deshacer.</p>
+
+            <form method="POST">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Sí, eliminar</button>
+                <a href="{% url volver %}" class="btn btn-secondary">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,76 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background-color: #f5f3ef !important;
+}
+
+/* barra de navegacion */
+.navbar {
+    background-color: #1f1f1f !important;
+    padding: 14px 0;
+}
+.navbar-brand {
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+/* Banner de bienvenida */
+.hero {
+    background-color: #1f1f1f;
+    color: #ffffff;
+    padding: 50px 20px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.hero h1 {
+    color: #ffffff;
+    font-weight: bold;
+}
+.hero p {
+    color: #d0d0d0;
+    margin-bottom: 0;
+}
+
+/* Tarjetas de productos */
+.card {
+    border: none;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+.card-img-top {
+    height: 250px;
+    object-fit: cover;
+}
+.card-title {
+    font-weight: bold;
+}
+.card-text {
+    color: #c0392b;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+/* Botones */
+.btn-primary {
+    background-color: #c0392b;
+    border-color: #c0392b;
+}
+.btn-primary:hover {
+    background-color: #a93226;
+    border-color: #a93226;
+}
+.btn-outline-dark:hover {
+    background-color: #1f1f1f;
+}
+
+/* Etiquetas de talla */
+.badge {
+    font-size: 0.9rem;
+    margin-right: 4px;
+}

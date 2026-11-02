@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{% block titulo %}Mi Tienda de Ropa{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'tienda/css/estilos.css' %}">
+</head>
+<body>
+    <nav class="navbar navbar-dark">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'inicio' %}">Mi Tienda de Ropa</a>
+
+            <div class="me-auto ms-3">
+                <a class="btn btn-outline-light btn-sm" href="{% url 'CrearProducto' %}">+ Producto</a>
+                <a class="btn btn-outline-light btn-sm" href="{% url 'Catalogo' %}">Categorías y tallas</a>
+            </div>
+
+            <form class="d-flex" method="get" action="{% url 'inicio' %}">
+                <input class="form-control me-2" type="search" name="seleccionar" placeholder="Buscar prenda">
+                <button class="btn btn-light" type="submit">Buscar</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        {# Mensajes de éxito o error #}
+        {% for message in messages %}
+        <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %}">
+            {{ message }}
+        </div>
+        {% endfor %}
+
+        {% block contenido %}{% endblock %}
+    </div>
+</body>
+</html>
